@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "start:nodemon": "nodemon app.js",
+    "start": "node App.js",
+    "start:nodemon": "nodemon App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "google-auth-library": "^7.0.3",
     "mongoose": "^5.12.2",
     "nodemon": "^2.0.7",
     "react-router-dom": "^5.2.0"
