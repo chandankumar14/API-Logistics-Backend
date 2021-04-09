@@ -26,9 +26,8 @@ exports.login = (req, res) => {
 exports.signUp = (req, res, next) => {
     const email  = req.body.email;
     const password = req.body.password;
-    const firstname = req.body.firstname;
-    const lastname = req.body.lastname;
-    const SignInUser = new User({email:email, password: password, firstname: firstname, lastname: lastname });
+   
+    const SignInUser = new User({email:email, password: password});
     SignInUser.save().then(result => {
         res.status(200).json({ message: "User SignedUp Sucessfully", user: result })
     }).catch(err => {
