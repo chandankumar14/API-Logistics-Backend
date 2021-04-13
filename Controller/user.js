@@ -3,7 +3,8 @@ const {OAuth2Client}= require('google-auth-library');
 const { response } = require('express');
 
 const client =  new OAuth2Client("745717577080-5uo0jrq7g23qqioe155h28u94a0co1cj.apps.googleusercontent.com")
-// to check the authenticity of the user 
+// using login function we can perform both signIN and SignUP operation------>if user already exist then perform SignIN 
+// else perform SignUP operation--------> 
 exports.login = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
@@ -13,7 +14,13 @@ exports.login = (req, res) => {
                 res.status(200).json({ message: "User LoggedIn Sucessfully", isAuthenticated: true, user: result })
             }
             else {
-                res.status(200).json({ message: "User Not LoggedIn Sucessfully", isAuthenticated: false, user: result })
+               let urs = new User({email:email,password:password});
+               urs.save().then(
+                 results =>{
+                   res.status(200).json({message:"user signedup successfully ",isAuthenticated:true,result:results})
+                 }
+                 
+               )
             }
         })
         .catch(err => {
