@@ -6,8 +6,12 @@ const signup = require('../Controller/user');
 const Controllrelocation = require('../Controller/location');
 const Controllermealtypes = require('../Controller/Meal-types');
 const ControllerSearch = require('../Controller/Restaurants')
+const ControllerReacord = require('../Controller/Record')
 // making api call here---------->
 
+
+Router.post('/record',ControllerReacord.Record);
+Router.get('/records',ControllerReacord.GetRecord);
 Router.post('/signup',signup.signUp);
 Router.post('/delete',signup.deleteItem);
 Router.post('/login',signup.login);
