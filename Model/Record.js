@@ -7,6 +7,11 @@ const Record = new Schema({
         type:String,
         require:true
     },
+    id:{
+    type:String,
+    require:true
+   },
+    
     Company_name:{
         type:String,
         require:true
